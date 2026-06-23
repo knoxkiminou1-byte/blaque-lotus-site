@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blaque Lotus | City Play. Luxe Lines.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'retro-cream': '#F9F7F1',
+                        'retro-beige': '#F0EAD6',
+                        'retro-sand': '#E4DAC3',
+                        'retro-brown': '#4A3B32',
+                        'retro-light-brown': '#7C6754',
+                        'retro-dark': '#2B2B2A',
+                        'retro-gray': '#8A8A8A'
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Montserrat"', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft-float': '0 20px 40px -10px rgba(74, 59, 50, 0.15)',
+                        'soft-float-hover': '0 30px 50px -15px rgba(74, 59, 50, 0.25)',
+                        'tactile': 'inset 0 2px 4px rgba(255, 255, 255, 0.3), 0 4px 10px rgba(74, 59, 50, 0.2)',
+                    },
+                    animation: {
+                        'float-slow': 'float 8s ease-in-out infinite',
+                        'float-medium': 'float 6s ease-in-out infinite reverse',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0) scale(1)' },
+                            '50%': { transform: 'translateY(-15px) scale(1.01)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F9F7F1;
+            color: #4A3B32;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        
+        /* Subtle Canvas Grain Overlay */
+        .canvas-grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Naked Image Placeholder Utility */
+        .img-placeholder {
+            background-color: #E4DAC3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1.5rem;
+            color: #7C6754;
+            font-size: 0.75rem;
+            transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* 3D Image Hover Effects (No box wrappers) */
+        .image-3d {
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            transform-style: preserve-3d;
+        }
+        
+        .image-3d:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 50px -15px rgba(74, 59, 50, 0.25);
+        }
+
+        /* Elegant Text Shadows to replace bounding boxes */
+        .text-glow-dark {
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .text-glow-light {
+            text-shadow: 0 4px 20px rgba(249, 247, 241, 0.8), 0 2px 4px rgba(255,255,255,1);
+        }
+
+        /* Staggered layout helper */
+        .stagger-up { transform: translateY(-20px); }
+        .stagger-down { transform: translateY(20px); }
+    </style>
+</head>
+<body class="font-sans font-light relative">
+
+    <div class="canvas-grain"></div>
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-retro-cream/90 backdrop-blur-sm py-2 px-6 lg:px-12 relative z-50">
+        <div class="max-w-[1600px] mx-auto flex justify-between items-center text-[9px] tracking-widest uppercase font-medium text-retro-brown">
+            <div class="flex-1 flex items-center gap-2">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 15v4c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2v-4M17 9l-5 5-5-5M12 12.8V2.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                FREE U.S. SHIPPING ON ORDERS $150+
+            </div>
+            <div class="flex-1 text-center font-bold">
+                NEW DROP LIVE | <a href="#" class="underline underline-offset-4 decoration-retro-light-brown hover:text-retro-light-brown transition-colors">SHOP NOW</a>
+            </div>
+            <div class="flex-1 flex items-center justify-end gap-2">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 3v5h5M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 21v-5h5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                EASY RETURNS
+            </div>
+        </div>
+    </div>
+
+    <!-- Header (Floating Organic) -->
+    <header class="bg-transparent absolute top-10 w-full z-50 transition-all duration-300">
+        <div class="max-w-[1600px] mx-auto px-6 lg:px-12 h-24 flex items-center justify-between">
+            <!-- Left Nav -->
+            <div class="flex-1 flex items-center gap-6">
+                <button aria-label="Search" class="hover:scale-110 transition-transform">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8" stroke-width="1.5"/><path d="M21 21l-4.35-4.35" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </button>
+                <nav class="hidden lg:flex gap-8 text-[10px] tracking-[0.2em] uppercase font-semibold">
+                    <a href="#" class="hover:text-retro-light-brown transition-colors">NEW IN</a>
+                    <a href="#" class="hover:text-retro-light-brown transition-colors">WOMEN</a>
+                    <a href="#" class="hover:text-retro-light-brown transition-colors">HIM</a>
+                    <a href="#" class="hover:text-retro-light-brown transition-colors">SETS</a>
+                </nav>
+            </div>
+
+            <!-- Logo -->
+            <div class="flex-none text-center">
+                <a href="#" class="font-serif text-5xl tracking-widest font-normal text-retro-brown hover:opacity-80 transition-opacity inline-block">BLAQUE LOTUS</a>
+            </div>
+
+            <!-- Right Nav -->
+            <div class="flex-1 flex justify-end items-center gap-8 text-[10px] tracking-[0.2em] uppercase font-semibold">
+                <nav class="hidden lg:flex gap-8">
+                    <a href="#" class="hover:text-retro-light-brown transition-colors">COUPLES EDIT</a>
+                    <a href="#" class="hover:text-retro-light-brown transition-colors">BEST SELLERS</a>
+                </nav>
+                <div class="flex items-center gap-5">
+                    <a href="#" aria-label="Account" class="hover:scale-110 transition-transform">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="7" r="4" stroke-width="1.5" stroke-linecap="round"/></svg>
+                    </a>
+                    <a href="#" aria-label="Cart" class="hover:scale-110 transition-transform relative">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 6h18" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 10a4 4 0 0 1-8 0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <span class="absolute -top-1 -right-2 bg-retro-brown text-white text-[8px] w-4 h-4 rounded-full flex items-center justify-center">2</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section (Full Bleed, No Boxes) -->
+    <section class="relative w-full h-[90vh] bg-retro-beige overflow-hidden flex items-center">
+        <!-- Floating Retro Curved Lines Graphic -->
+        <div class="absolute inset-0 z-10 pointer-events-none mix-blend-multiply opacity-50">
+            <svg class="absolute top-[-10%] left-[-10%] w-[800px] h-[800px] animate-float-slow" viewBox="0 0 500 500" fill="none">
+                <path d="M-100 200 C 150 200, 250 100, 250 -100" stroke="#7C6754" stroke-width="24" stroke-linecap="round"/>
+                <path d="M-100 240 C 170 240, 280 120, 280 -100" stroke="#A98F78" stroke-width="24" stroke-linecap="round"/>
+                <path d="M-100 280 C 190 280, 310 140, 310 -100" stroke="#E4DAC3" stroke-width="24" stroke-linecap="round"/>
+            </svg>
+        </div>
+
+        <!-- Full Bleed Background Image Area -->
+        <div class="absolute inset-0 z-0">
+            <div class="w-full h-full img-placeholder bg-[#DCD2BF] text-retro-brown/40 text-xl font-serif">
+                [Full Screen Image: Warm, highly detailed 70s-style illustration. Couple walking in city. Fades softly at edges.]
+            </div>
+            <!-- Soft gradient vignette to ensure text readability -->
+            <div class="absolute inset-0 bg-gradient-to-r from-retro-cream/80 via-retro-cream/20 to-transparent"></div>
+        </div>
+
+        <!-- Hero Content (Floating organically on the left) -->
+        <div class="relative z-20 max-w-[1600px] mx-auto px-6 lg:px-12 w-full mt-24">
+            <div class="max-w-2xl">
+                <h1 class="font-serif text-7xl lg:text-[7rem] text-retro-brown mb-6 leading-[0.9] tracking-tight text-glow-light">
+                    CITY PLAY.<br>LUXE LINES.
+                </h1>
+                <p class="font-serif italic text-3xl text-retro-brown mb-12 text-glow-light">
+                    Cartoon chic for her and<br>the one beside her.
+                </p>
+                <div class="flex flex-wrap gap-6">
+                    <a href="#" class="bg-retro-brown text-white px-12 py-5 text-[10px] uppercase tracking-[0.2em] font-bold rounded-full shadow-tactile hover:-translate-y-1 hover:bg-[#3A2B22] hover:shadow-soft-float-hover transition-all duration-400">
+                        SHOP WOMEN
+                    </a>
+                    <a href="#" class="bg-transparent text-retro-brown px-12 py-5 text-[10px] uppercase tracking-[0.2em] font-bold rounded-full border border-retro-brown hover:-translate-y-1 hover:bg-retro-brown hover:text-white transition-all duration-400">
+                        SHOP COUPLES
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Row (Arched, Organic, Staggered) -->
+    <section class="max-w-[1600px] mx-auto px-6 lg:px-12 py-24">
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-6 lg:gap-10">
+            <!-- Cat 1 (Arch) -->
+            <a href="#" class="group block stagger-down">
+                <div class="image-3d relative aspect-[2/3] overflow-hidden rounded-t-full rounded-b-2xl shadow-soft-float bg-retro-sand">
+                    <div class="absolute inset-0 img-placeholder border-none">[Lounge]</div>
+                    <div class="absolute inset-0 bg-retro-brown/20 group-hover:bg-transparent transition-colors duration-500"></div>
+                </div>
+                <div class="mt-6 text-center">
+                    <h3 class="font-serif text-2xl text-retro-brown mb-1">LOUNGE</h3>
+                    <p class="text-[9px] uppercase tracking-widest text-retro-gray group-hover:text-retro-brown transition-colors">SHOP NOW &rarr;</p>
+                </div>
+            </a>
+            <!-- Cat 2 (Arch - Stagger Up) -->
+            <a href="#" class="group block stagger-up">
+                <div class="image-3d relative aspect-[2/3] overflow-hidden rounded-t-full rounded-b-2xl shadow-soft-float bg-retro-sand">
+                    <div class="absolute inset-0 img-placeholder border-none">[Sets]</div>
+                    <div class="absolute inset-0 bg-retro-brown/20 group-hover:bg-transparent transition-colors duration-500"></div>
+                </div>
+                <div class="mt-6 text-center">
+                    <h3 class="font-serif text-2xl text-retro-brown mb-1">SETS</h3>
+                    <p class="text-[9px] uppercase tracking-widest text-retro-gray group-hover:text-retro-brown transition-colors">SHOP NOW &rarr;</p>
+                </div>
+            </a>
+            <!-- Cat 3 (Arch) -->
+            <a href="#" class="group block stagger-down">
+                <div class="image-3d relative aspect-[2/3] overflow-hidden rounded-t-full rounded-b-2xl shadow-soft-float bg-retro-sand">
+                    <div class="absolute inset-0 img-placeholder border-none">[Dresses]</div>
+                    <div class="absolute inset-0 bg-retro-brown/20 group-hover:bg-transparent transition-colors duration-500"></div>
+                </div>
+                <div class="mt-6 text-center">
+                    <h3 class="font-serif text-2xl text-retro-brown mb-1">DRESSES</h3>
+                    <p class="text-[9px] uppercase tracking-widest text-retro-gray group-hover:text-retro-brown transition-colors">SHOP NOW &rarr;</p>
+                </div>
+            </a>
+            <!-- Cat 4 (Arch - Stagger Up) -->
+            <a href="#" class="group block stagger-up">
+                <div class="image-3d relative aspect-[2/3] overflow-hidden rounded-t-full rounded-b-2xl shadow-soft-float bg-retro-sand">
+                    <div class="absolute inset-0 img-placeholder border-none">[Essentials]</div>
+                    <div class="absolute inset-0 bg-retro-brown/20 group-hover:bg-transparent transition-colors duration-500"></div>
+                </div>
+                <div class="mt-6 text-center">
+                    <h3 class="font-serif text-2xl text-retro-brown mb-1">ESSENTIALS</h3>
+                    <p class="text-[9px] uppercase tracking-widest text-retro-gray group-hover:text-retro-brown transition-colors">SHOP NOW &rarr;</p>
+                </div>
+            </a>
+            <!-- Cat 5 (Arch) -->
+            <a href="#" class="group block stagger-down">
+                <div class="image-3d relative aspect-[2/3] overflow-hidden rounded-t-full rounded-b-2xl shadow-soft-float bg-retro-sand">
+                    <div class="absolute inset-0 img-placeholder border-none">[Couples]</div>
+                    <div class="absolute inset-0 bg-retro-brown/20 group-hover:bg-transparent transition-colors duration-500"></div>
+                </div>
+                <div class="mt-6 text-center">
+                    <h3 class="font-serif text-2xl text-retro-brown mb-1">COUPLES EDIT</h3>
+                    <p class="text-[9px] uppercase tracking-widest text-retro-gray group-hover:text-retro-brown transition-colors">SHOP NOW &rarr;</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Best Sellers Row (Naked Images, No Box Wrappers) -->
+    <section class="max-w-[1600px] mx-auto px-6 lg:px-12 py-20">
+        <div class="flex justify-between items-end border-b border-retro-brown/20 pb-6 mb-16">
+            <h2 class="font-serif text-5xl text-retro-brown">BEST SELLERS</h2>
+            <a href="#" class="text-[10px] uppercase tracking-[0.2em] font-bold flex items-center gap-2 hover:text-retro-light-brown transition-colors">
+                VIEW ALL <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M12 5l7 7-7 7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-6 gap-y-12">
+            <!-- Product 1 -->
+            <div class="group cursor-pointer">
+                <div class="image-3d relative aspect-[3/4] mb-5 rounded-2xl overflow-hidden shadow-sm bg-[#EBE7E0]">
+                    <div class="absolute inset-0 img-placeholder border-none">[Taupe Half Zip]</div>
+                    <button class="absolute top-4 right-4 bg-white/50 backdrop-blur-md p-2.5 rounded-full text-retro-gray hover:text-retro-brown hover:scale-110 transition-all z-10 opacity-0 group-hover:opacity-100">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                </div>
+                <div>
+                    <h4 class="font-sans text-[11px] font-bold uppercase tracking-widest mb-1 text-retro-brown group-hover:text-retro-light-brown transition-colors">SOFT STRUCTURE HALF ZIP</h4>
+                    <p class="text-[11px] text-retro-gray mb-2">Taupe</p>
+                    <p class="font-serif text-lg font-medium mb-3">$88.00</p>
+                    <div class="flex gap-2">
+                        <div class="w-4 h-4 rounded-full bg-[#BFAF9E] shadow-inner border border-black/5 hover:scale-110 transition-transform"></div>
+                        <div class="w-4 h-4 rounded-full bg-[#DED7CD] shadow-inner border border-black/5 hover:scale-110 transition-transform"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="group cursor-pointer">
+                <div class="image-3d relative aspect-[3/4] mb-5 rounded-2xl overflow-hidden shadow-sm bg-[#EBE7E0]">
+                    <div class="absolute inset-0 img-placeholder border-none">[Olive Hoodie]</div>
+                    <button class="absolute top-4 right-4 bg-white/50 backdrop-blur-md p-2.5 rounded-full text-retro-gray hover:text-retro-brown hover:scale-110 transition-all z-10 opacity-0 group-hover:opacity-100">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                </div>
+                <div>
+                    <h4 class="font-sans text-[11px] font-bold uppercase tracking-widest mb-1 text-retro-brown group-hover:text-retro-light-brown transition-colors">SIGNATURE HOODIE</h4>
+                    <p class="text-[11px] text-retro-gray mb-2">Olive</p>
+                    <p class="font-serif text-lg font-medium mb-3">$78.00</p>
+                    <div class="flex gap-2">
+                        <div class="w-4 h-4 rounded-full bg-[#5D614E] shadow-inner border border-black/5 hover:scale-110 transition-transform"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="group cursor-pointer">
+                <div class="image-3d relative aspect-[3/4] mb-5 rounded-2xl overflow-hidden shadow-sm bg-[#EBE7E0]">
+                    <div class="absolute inset-0 img-placeholder border-none">[Bone Sweatpant]</div>
+                    <button class="absolute top-4 right-4 bg-white/50 backdrop-blur-md p-2.5 rounded-full text-retro-gray hover:text-retro-brown hover:scale-110 transition-all z-10 opacity-0 group-hover:opacity-100">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                </div>
+                <div>
+                    <h4 class="font-sans text-[11px] font-bold uppercase tracking-widest mb-1 text-retro-brown group-hover:text-retro-light-brown transition-colors">WIDE LEG SWEATPANT</h4>
+                    <p class="text-[11px] text-retro-gray mb-2">Bone</p>
+                    <p class="font-serif text-lg font-medium mb-3">$68.00</p>
+                    <div class="flex gap-2">
+                        <div class="w-4 h-4 rounded-full bg-[#EAE5D9] shadow-inner border border-black/5 hover:scale-110 transition-transform"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="group cursor-pointer">
+                <div class="image-3d relative aspect-[3/4] mb-5 rounded-2xl overflow-hidden shadow-sm bg-[#EBE7E0]">
+                    <div class="absolute inset-0 img-placeholder border-none">[Ribbed Tank]</div>
+                    <button class="absolute top-4 right-4 bg-white/50 backdrop-blur-md p-2.5 rounded-full text-retro-gray hover:text-retro-brown hover:scale-110 transition-all z-10 opacity-0 group-hover:opacity-100">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                </div>
+                <div>
+                    <h4 class="font-sans text-[11px] font-bold uppercase tracking-widest mb-1 text-retro-brown group-hover:text-retro-light-brown transition-colors">RIBBED TANK</h4>
+                    <p class="text-[11px] text-retro-gray mb-2">Black</p>
+                    <p class="font-serif text-lg font-medium mb-3">$48.00</p>
+                    <div class="flex gap-2">
+                        <div class="w-4 h-4 rounded-full bg-[#2A2A2A] shadow-inner border border-black/5 hover:scale-110 transition-transform"></div>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Product 5 -->
+            <div class="group cursor-pointer">
+                <div class="image-3d relative aspect-[3/4] mb-5 rounded-2xl overflow-hidden shadow-sm bg-[#EBE7E0]">
+                    <div class="absolute inset-0 img-placeholder border-none">[Chocolate Zip]</div>
+                    <button class="absolute top-4 right-4 bg-white/50 backdrop-blur-md p-2.5 rounded-full text-retro-gray hover:text-retro-brown hover:scale-110 transition-all z-10 opacity-0 group-hover:opacity-100">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                </div>
+                <div>
+                    <h4 class="font-sans text-[11px] font-bold uppercase tracking-widest mb-1 text-retro-brown group-hover:text-retro-light-brown transition-colors">CROPPED ZIP JACKET</h4>
+                    <p class="text-[11px] text-retro-gray mb-2">Chocolate</p>
+                    <p class="font-serif text-lg font-medium mb-3">$88.00</p>
+                    <div class="flex gap-2">
+                        <div class="w-4 h-4 rounded-full bg-[#4A352A] shadow-inner border border-black/5 hover:scale-110 transition-transform"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="group cursor-pointer">
+                <div class="image-3d relative aspect-[3/4] mb-5 rounded-2xl overflow-hidden shadow-sm bg-[#EBE7E0]">
+                    <div class="absolute inset-0 img-placeholder border-none">[Sand Tee]</div>
+                    <button class="absolute top-4 right-4 bg-white/50 backdrop-blur-md p-2.5 rounded-full text-retro-gray hover:text-retro-brown hover:scale-110 transition-all z-10 opacity-0 group-hover:opacity-100">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                </div>
+                <div>
+                    <h4 class="font-sans text-[11px] font-bold uppercase tracking-widest mb-1 text-retro-brown group-hover:text-retro-light-brown transition-colors">HEAVYWEIGHT TEE</h4>
+                    <p class="text-[11px] text-retro-gray mb-2">Sand</p>
+                    <p class="font-serif text-lg font-medium mb-3">$48.00</p>
+                    <div class="flex gap-2">
+                        <div class="w-4 h-4 rounded-full bg-[#D1C6B8] shadow-inner border border-black/5 hover:scale-110 transition-transform"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fabric Feature Section (Overlapping Editorial Layout) -->
+    <section class="max-w-[1600px] mx-auto px-6 lg:px-12 py-24 relative">
+        <div class="relative w-full min-h-[600px] flex items-center justify-end">
+            <!-- Background Full-Bleed Image (Right aligned) -->
+            <div class="absolute right-0 top-0 w-full md:w-[70%] h-full rounded-3xl overflow-hidden shadow-soft-float">
+                <div class="absolute inset-0 img-placeholder border-none bg-[#CDC6BA] text-retro-brown/60 text-lg font-serif">
+                    [Cinematic Macro Shot: Flowing premium fabric. Soft shadows, high detail.]
+                </div>
+            </div>
+            
+            <!-- Overlapping Floating Content Box (Left aligned) -->
+            <div class="relative z-10 w-full md:w-[45%] bg-retro-cream/80 backdrop-blur-lg p-12 lg:p-20 rounded-3xl shadow-[0_20px_60px_-15px_rgba(74,59,50,0.2)] left-0 md:-left-[10%] border border-white/50 transform hover:-translate-y-2 transition-transform duration-700">
+                <h4 class="font-sans text-[10px] tracking-[0.2em] uppercase mb-4 text-retro-gray font-bold">FABRIC. FIT. FEEL.</h4>
+                <h2 class="font-serif text-5xl text-retro-brown mb-6 leading-tight">OUR OFF DUTY<br>STANDARD.</h2>
+                <p class="font-sans text-sm text-retro-brown/80 mb-10 leading-relaxed">
+                    Every piece is crafted in premium, breathable fabrics with a fit that moves with you. Made to be worn well. Designed to last beyond seasons.
+                </p>
+                
+                <div class="grid grid-cols-2 gap-y-8 gap-x-4 mb-10">
+                    <div class="flex items-center gap-4 group">
+                        <div class="w-10 h-10 bg-retro-beige rounded-full flex items-center justify-center shadow-inner group-hover:scale-110 transition-transform">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7C6754"><circle cx="12" cy="12" r="10" stroke-width="1.5"/></svg>
+                        </div>
+                        <p class="text-[9px] uppercase tracking-widest font-bold text-retro-brown">PREMIUM FABRICS</p>
+                    </div>
+                    <div class="flex items-center gap-4 group">
+                        <div class="w-10 h-10 bg-retro-beige rounded-full flex items-center justify-center shadow-inner group-hover:scale-110 transition-transform">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7C6754"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke-width="1.5"/></svg>
+                        </div>
+                        <p class="text-[9px] uppercase tracking-widest font-bold text-retro-brown">LUXE COMFORT</p>
+                    </div>
+                    <div class="flex items-center gap-4 group">
+                        <div class="w-10 h-10 bg-retro-beige rounded-full flex items-center justify-center shadow-inner group-hover:scale-110 transition-transform">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7C6754"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z" stroke-width="1.5"/></svg>
+                        </div>
+                        <p class="text-[9px] uppercase tracking-widest font-bold text-retro-brown">TIMELESS DESIGN</p>
+                    </div>
+                </div>
+
+                <a href="#" class="inline-block border-b-2 border-retro-brown pb-1 text-[10px] uppercase tracking-[0.2em] font-bold text-retro-brown hover:text-retro-light-brown hover:border-retro-light-brown transition-colors">
+                    READ OUR STORY &rarr;
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop The Look Row (Editorial / Asymmetrical) -->
+    <section class="max-w-[1600px] mx-auto px-6 lg:px-12 py-24">
+        <div class="flex justify-between items-end border-b border-retro-brown/20 pb-6 mb-16">
+            <h2 class="font-serif text-5xl text-retro-brown">SHOP THE LOOK</h2>
+            <a href="#" class="text-[10px] uppercase tracking-[0.2em] font-bold flex items-center gap-2 hover:text-retro-light-brown transition-colors">
+                VIEW ALL LOOKS <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M12 5l7 7-7 7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <!-- Look 1 -->
+            <div class="flex flex-col md:flex-row gap-8 items-center group">
+                <div class="w-full md:w-[60%] image-3d rounded-3xl overflow-hidden aspect-square shadow-soft-float">
+                    <div class="absolute inset-0 img-placeholder border-none">[Image: The City Set]</div>
+                </div>
+                <div class="w-full md:w-[40%] flex flex-col justify-center">
+                    <h4 class="font-sans text-[11px] font-bold uppercase tracking-[0.2em] mb-4 text-retro-brown">THE CITY SET</h4>
+                    <ul class="text-[11px] space-y-3 mb-8 text-retro-gray font-medium">
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-retro-brown"></div>Soft Structure Half Zip</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-retro-brown"></div>Wide Leg Sweatpant</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-retro-brown"></div>Essential Tee</li>
+                    </ul>
+                    <p class="font-serif text-2xl font-medium mb-6 text-retro-brown">$184.00</p>
+                    <a href="#" class="bg-transparent text-retro-brown px-8 py-3 text-[9px] uppercase tracking-[0.2em] font-bold rounded-full border border-retro-brown hover:bg-retro-brown hover:text-white transition-all w-fit">SHOP THIS LOOK</a>
+                </div>
+            </div>
+            
+            <!-- Look 2 -->
+             <div class="flex flex-col md:flex-row gap-8 items-center group lg:mt-24">
+                <div class="w-full md:w-[60%] image-3d rounded-3xl overflow-hidden aspect-square shadow-soft-float">
+                    <div class="absolute inset-0 img-placeholder border-none">[Image: The Airport Set]</div>
+                </div>
+                <div class="w-full md:w-[40%] flex flex-col justify-center">
+                    <h4 class="font-sans text-[11px] font-bold uppercase tracking-[0.2em] mb-4 text-retro-brown">THE AIRPORT SET</h4>
+                    <ul class="text-[11px] space-y-3 mb-8 text-retro-gray font-medium">
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-retro-brown"></div>Signature Hoodie</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-retro-brown"></div>Wide Leg Sweatpant</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-retro-brown"></div>Crew Sock</li>
+                    </ul>
+                    <p class="font-serif text-2xl font-medium mb-6 text-retro-brown">$166.00</p>
+                    <a href="#" class="bg-transparent text-retro-brown px-8 py-3 text-[9px] uppercase tracking-[0.2em] font-bold rounded-full border border-retro-brown hover:bg-retro-brown hover:text-white transition-all w-fit">SHOP THIS LOOK</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Row (Staggered Floating Tiles) -->
+    <section class="max-w-[1600px] mx-auto px-6 lg:px-12 py-20 overflow-hidden">
+        <div class="flex flex-col items-center text-center pb-12">
+            <h2 class="font-serif text-4xl text-retro-brown mb-4">OFF DUTY. EVERYWHERE.</h2>
+            <a href="#" class="text-[10px] uppercase tracking-[0.2em] font-bold flex items-center gap-2 hover:text-retro-light-brown transition-colors">
+                @BLAQUELOTUS <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M12 5l7 7-7 7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+        </div>
+
+        <!-- Flowing row, breaking the strict grid -->
+        <div class="flex flex-wrap lg:flex-nowrap justify-center gap-4 lg:gap-6">
+            <div class="image-3d w-[45%] lg:w-1/6 aspect-square rounded-2xl overflow-hidden shadow-sm stagger-up"><div class="absolute inset-0 img-placeholder text-[8px] border-none">[IG 1]</div></div>
+            <div class="image-3d w-[45%] lg:w-1/6 aspect-[3/4] rounded-2xl overflow-hidden shadow-sm stagger-down"><div class="absolute inset-0 img-placeholder text-[8px] border-none">[IG 2]</div></div>
+            <div class="image-3d w-[45%] lg:w-1/6 aspect-square rounded-2xl overflow-hidden shadow-sm stagger-up"><div class="absolute inset-0 img-placeholder text-[8px] border-none">[IG 3]</div></div>
+            <div class="image-3d w-[45%] lg:w-1/6 aspect-[4/5] rounded-2xl overflow-hidden shadow-sm stagger-down"><div class="absolute inset-0 img-placeholder text-[8px] border-none">[IG 4]</div></div>
+            <div class="image-3d w-[45%] lg:w-1/6 aspect-square rounded-2xl overflow-hidden shadow-sm stagger-up hidden md:block"><div class="absolute inset-0 img-placeholder text-[8px] border-none">[IG 5]</div></div>
+        </div>
+    </section>
+
+    <!-- Newsletter Bar -->
+    <section class="bg-[#7C6754] text-white py-16 px-6 lg:px-12 mt-10">
+        <div class="max-w-[1200px] mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
+            <div class="flex items-center gap-6">
+                <div class="bg-white/10 p-5 rounded-full shadow-inner border border-white/20">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22,6 12,13 2,6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div>
+                    <h3 class="font-sans text-sm font-bold uppercase tracking-[0.2em] mb-2">THE INNER CIRCLE</h3>
+                    <p class="font-serif italic text-base text-white/90">New drops, exclusive access, and style delivered directly.</p>
+                </div>
+            </div>
+            <form class="flex w-full md:w-auto gap-0 border-b border-white/40 pb-2 group">
+                <input type="email" placeholder="Enter your email" class="bg-transparent border-none text-white placeholder:text-white/60 px-2 py-2 w-full md:w-64 text-sm focus:outline-none focus:ring-0">
+                <button type="submit" class="text-white px-4 py-2 text-[10px] uppercase tracking-[0.2em] font-bold hover:text-retro-beige transition-colors">
+                    SUBSCRIBE
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#2B2B2A] text-white pt-24 pb-12 px-6 lg:px-12">
+        <div class="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-6 border-b border-white/10 pb-16 mb-8">
+            
+            <!-- Brand Column -->
+            <div class="md:col-span-4 lg:col-span-5 pr-8">
+                <h2 class="font-serif text-5xl tracking-widest mb-6 text-white">BLAQUE LOTUS</h2>
+                <p class="font-sans text-xs text-white/60 mb-8 max-w-sm leading-relaxed font-medium">
+                    Luxury street essentials for her and the one beside her.<br>Made to wear. Styled to be.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#" class="bg-white/5 p-3 rounded-full hover:bg-white hover:text-retro-brown hover:-translate-y-1 transition-all"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="1.5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke-width="1.5"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="1.5"/></svg></a>
+                    <a href="#" class="bg-white/5 p-3 rounded-full hover:bg-white hover:text-retro-brown hover:-translate-y-1 transition-all"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                </div>
+            </div>
+
+            <!-- Links Columns -->
+            <div class="md:col-span-2 lg:col-span-2">
+                <h4 class="font-sans text-[10px] font-bold uppercase tracking-[0.2em] mb-6 text-white/50">SHOP</h4>
+                <ul class="space-y-4 text-xs font-semibold text-white/80">
+                    <li><a href="#" class="hover:text-white hover:translate-x-1 inline-block transition-transform">New In</a></li>
+                    <li><a href="#" class="hover:text-white hover:translate-x-1 inline-block transition-transform">Women</a></li>
+                    <li><a href="#" class="hover:text-white hover:translate-x-1 inline-block transition-transform">Him</a></li>
+                    <li><a href="#" class="hover:text-white hover:translate-x-1 inline-block transition-transform">Sets</a></li>
+                    <li><a href="#" class="hover:text-white hover:translate-x-1 inline-block transition-transform">Best Sellers</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-3 lg:col-span-3">
+                <h4 class="font-sans text-[10px] font-bold uppercase tracking-[0.2em] mb-6 text-white/50">CUSTOMER CARE</h4>
+                <ul class="space-y-4 text-xs font-semibold text-white/80">
+                    <li><a href="#" class="hover:text-white hover:translate-x-1 inline-block transition-transform">FAQ & Shipping</a></li>
+                    <li><a href="#" class="hover:text-white hover:translate-x-1 inline-block transition-transform">Returns & Exchanges</a></li>
+                    <li><a href="#" class="hover:text-white hover:translate-x-1 inline-block transition-transform">Size Guide</a></li>
+                    <li><a href="#" class="hover:text-white hover:translate-x-1 inline-block transition-transform">Contact The Concierge</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-3 lg:col-span-2">
+                <h4 class="font-sans text-[10px] font-bold uppercase tracking-[0.2em] mb-6 text-white/50">LEGAL</h4>
+                <ul class="space-y-4 text-xs font-semibold text-white/80">
+                    <li><a href="#" class="hover:text-white hover:translate-x-1 inline-block transition-transform">Our Story</a></li>
+                    <li><a href="#" class="hover:text-white hover:translate-x-1 inline-block transition-transform">Terms & Conditions</a></li>
+                    <li><a href="#" class="hover:text-white hover:translate-x-1 inline-block transition-transform">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="max-w-[1600px] mx-auto flex flex-col md:flex-row justify-between items-center text-[10px] text-white/40 font-sans uppercase tracking-[0.2em] font-bold">
+            <p>&copy; 2026 BLAQUE LOTUS. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
