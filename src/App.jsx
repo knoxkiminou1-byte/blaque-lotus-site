@@ -493,7 +493,7 @@ function App() {
             <div className="preloaderUnderline" />
           </div>
           <div className="preloaderBar"><div className="preloaderFill" /></div>
-          <span className="preloaderSub">LUXURY STREET ESSENTIALS</span>
+          <span className="preloaderSub">LUXURY ESSENTIALS</span>
         </div>
       </div>
       <div className="customCursor" ref={cursorRef} aria-hidden="true" />
@@ -919,7 +919,7 @@ function App() {
         <div className="footerMain">
           <div className="footerBrand">
             <span className="logoFooter">BLAQUELYŚ</span>
-            <p>Luxury street essentials for her and the one beside her.<br />Made to wear. Styled to be.</p>
+            <p>Luxury essentials for her and the one beside her.<br />Made to wear. Styled to be.</p>
             <div className="socialIcons" aria-label="Social links">
               <a href="#" aria-label="Instagram"><Instagram size={17} strokeWidth={1.4} /></a>
               <a href="#" aria-label="Facebook"><Facebook size={17} strokeWidth={1.4} /></a>
