@@ -256,7 +256,7 @@ function App() {
     await sendSiteMessage({ type: "concierge", name: form.get("name"), email: form.get("contactEmail"), message: form.get("message"), cart: cart.map(({ name, color, size, quantity }) => ({ name, color, size, quantity })) });
     e.currentTarget.reset();
     setSending("");
-    setToast("Message sent to Blaque Lotus");
+    setToast("Message sent to Blaquelyś");
   };
 
   const handleCheckoutMessage = async () => {
@@ -299,7 +299,7 @@ function App() {
           </div>
 
           <button className="brandLink" type="button" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-            <span className="logo">BLAQUE LOTUS</span>
+            <span className="logo">BLAQUELYŚ</span>
           </button>
 
           <div className="navGroup navRight">
@@ -395,7 +395,7 @@ function App() {
         <section className="fabricSection" data-reveal>
           <div className="fabricInner">
             <div className="fabricImageWrap">
-              <img src={asset("fabric-story")} alt="Blaque Lotus fabric detail" />
+              <img src={asset("fabric-story")} alt="Blaquelyś fabric detail" />
             </div>
             <div className="fabricCard">
               <small>Fabric. Fit. Feel.</small>
@@ -512,7 +512,7 @@ function App() {
       <footer>
         <div className="footerMain">
           <div className="footerBrand">
-            <span className="logoFooter">BLAQUE LOTUS</span>
+            <span className="logoFooter">BLAQUELYŚ</span>
             <p>Luxury street essentials for her and the one beside her.<br />Made to wear. Styled to be.</p>
             <div className="socialIcons" aria-label="Social links">
               <a href="#" aria-label="Instagram"><Instagram size={17} strokeWidth={1.4} /></a>
@@ -541,7 +541,7 @@ function App() {
           </div>
         </div>
         <div className="footerBottom">
-          <p>© 2026 BLAQUE LOTUS. ALL RIGHTS RESERVED.</p>
+          <p>© 2026 BLAQUELYŚ. ALL RIGHTS RESERVED.</p>
           <div className="paymentRow" aria-label="Accepted payment methods">
             {["Shop", "Pay", "GPay", "Klarna", "PayPal", <CreditCard key="mc" size={11} strokeWidth={1.4} />, "Visa", "Amex"].map((label, i) => (
               <span key={i}>{label}</span>
@@ -721,7 +721,7 @@ function ConciergeDrawer({ open, sending, onClose, onSubmit }) {
         </button>
       </div>
       <form className="conciergeForm" onSubmit={onSubmit}>
-        <p>Send Blaque Lotus a fit question, event note, or styling request.</p>
+        <p>Send Blaquelyś a fit question, event note, or styling request.</p>
         <label htmlFor="name">Name</label>
         <input id="name" name="name" placeholder="Your name" required />
         <label htmlFor="contactEmail">Email</label>
