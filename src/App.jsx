@@ -113,7 +113,7 @@ const products = [
     isNew: true,
     rating: 4.8,
     reviewCount: 73,
-    description: "The jacket that makes the set. A cropped silhouette in our premium chocolate fabrication — pair with the Ribbed Tank and Wide Leg for the full Blaquelyś uniform.",
+    description: "The jacket that makes the set. A cropped silhouette in our premium chocolate fabrication — pair with the Ribbed Tank and Wide Leg for the full Blaque Lyś uniform.",
     swatches: ["#4A352A", "#a9896c", "#e5d7c0"],
     variants: [
       { label: "Chocolate", image: "product-jacket" },
@@ -199,7 +199,7 @@ const testimonials = [
     product: "Cropped Zip Jacket Set",
   },
   {
-    text: "Blaquelyś pieces feel twice what you pay for them. The Wide Leg Sweatpant has replaced everything in my rotation.",
+    text: "Blaque Lyś pieces feel twice what you pay for them. The Wide Leg Sweatpant has replaced everything in my rotation.",
     author: "Simone L.",
     location: "Los Angeles",
     rating: 5,
@@ -467,7 +467,7 @@ function App() {
     await sendSiteMessage({ type: "concierge", name: form.get("name"), email: form.get("contactEmail"), message: form.get("message"), cart: cart.map(({ name, color, size, quantity }) => ({ name, color, size, quantity })) });
     e.currentTarget.reset();
     setSending("");
-    setToast("Message sent to Blaquelyś");
+    setToast("Message sent to Blaque Lyś");
   };
 
   const handleCheckout = async (e) => {
@@ -489,7 +489,7 @@ function App() {
       <div className={loaded ? "preloader preloaderDone" : "preloader"} aria-hidden="true">
         <div className="preloaderInner">
           <div className="preloaderLogoWrap">
-            <span className="preloaderLogo">BLAQUELYŚ</span>
+            <span className="preloaderLogo">BLAQUE LYŚ</span>
             <div className="preloaderUnderline" />
           </div>
           <div className="preloaderBar"><div className="preloaderFill" /></div>
@@ -524,7 +524,7 @@ function App() {
           </div>
 
           <button className="brandLink" type="button" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-            <span className="logo">BLAQUELYŚ</span>
+            <span className="logo">BLAQUE LYŚ</span>
           </button>
 
           <div className="navGroup navRight">
@@ -552,7 +552,7 @@ function App() {
       {/* ── Mobile Nav ───────────────────────────── */}
       <div className={mobileNavOpen ? "mobileNav mobileNavOpen" : "mobileNav"} aria-hidden={!mobileNavOpen}>
         <div className="mobileNavHeader">
-          <span className="logo" style={{fontSize:"28px"}}>BLAQUELYŚ</span>
+          <span className="logo" style={{fontSize:"28px"}}>BLAQUE LYŚ</span>
           <button className="closeButton" type="button" onClick={() => setMobileNavOpen(false)} aria-label="Close menu">
             <X size={16} strokeWidth={1.5} />
           </button>
@@ -656,7 +656,7 @@ function App() {
         <div className="marqueeBar" aria-hidden="true">
           <div className="marqueeTrack">
             {[...Array(3)].flatMap(() => [
-              "NEW COLLECTION", "✦", "CITY PLAY", "✦", "LUXE LINES", "✦", "BLAQUELYŚ", "✦", "OFF DUTY EVERYWHERE", "✦", "PREMIUM FABRICS", "✦", "FREE U.S. SHIPPING $150+", "✦",
+              "NEW COLLECTION", "✦", "CITY PLAY", "✦", "LUXE LINES", "✦", "BLAQUE LYŚ", "✦", "OFF DUTY EVERYWHERE", "✦", "PREMIUM FABRICS", "✦", "FREE U.S. SHIPPING $150+", "✦",
             ]).map((t, i) => <span key={i}>{t}</span>)}
           </div>
         </div>
@@ -772,7 +772,7 @@ function App() {
         <section className="fabricSection" data-reveal>
           <div className="fabricInner">
             <div className="fabricImageWrap">
-              <img src={asset("fabric-story")} alt="Blaquelyś fabric detail" />
+              <img src={asset("fabric-story")} alt="Blaque Lyś fabric detail" />
             </div>
             <div className="fabricCard">
               <small>Fabric. Fit. Feel.</small>
@@ -873,7 +873,7 @@ function App() {
           <div className="socialHeader">
             <h2>OFF DUTY. EVERYWHERE.</h2>
             <button type="button" className="textLink" onClick={() => setNoteOpen(true)}>
-              @BLAQUELYŚ <ArrowRight size={16} strokeWidth={1.5} />
+              @BLAQUE LYŚ <ArrowRight size={16} strokeWidth={1.5} />
             </button>
           </div>
           <div className="socialStrip">
@@ -918,7 +918,7 @@ function App() {
       <footer>
         <div className="footerMain">
           <div className="footerBrand">
-            <span className="logoFooter">BLAQUELYŚ</span>
+            <span className="logoFooter">BLAQUE LYŚ</span>
             <p>Luxury essentials for her and the one beside her.<br />Made to wear. Styled to be.</p>
             <div className="socialIcons" aria-label="Social links">
               <a href="#" aria-label="Instagram"><Instagram size={17} strokeWidth={1.4} /></a>
@@ -952,7 +952,7 @@ function App() {
           </div>
         </div>
         <div className="footerBottom">
-          <p>© 2026 BLAQUELYŚ. ALL RIGHTS RESERVED.</p>
+          <p>© 2026 BLAQUE LYŚ. ALL RIGHTS RESERVED.</p>
           <div className="paymentRow" aria-label="Accepted payment methods">
             {["Shop", "Pay", "GPay", "Klarna", "PayPal", <CreditCard key="mc" size={11} strokeWidth={1.4} />, "Visa", "Amex"].map((label, i) => (
               <span key={i}>{label}</span>
@@ -1150,7 +1150,7 @@ function CartDrawer({ open, cart, total, finalTotal, discountAmount, promoApplie
         <div className="checkoutConfirm">
           <div className="confirmIcon confirmIconSuccess"><Check size={32} strokeWidth={1.5} /></div>
           <h3>Thank You!</h3>
-          <p>Your order is being processed. You'll receive a confirmation from the Blaquelyś team shortly.</p>
+          <p>Your order is being processed. You'll receive a confirmation from the Blaque Lyś team shortly.</p>
           <button className="button buttonDark shimmerBtn" type="button" onClick={onClose}>CONTINUE SHOPPING</button>
         </div>
       ) : checkoutStep === 2 ? (
@@ -1322,7 +1322,7 @@ function ConciergeDrawer({ open, sending, onClose, onSubmit }) {
       <form className="conciergeForm" onSubmit={onSubmit}>
         <div className="conciergeIntro">
           <Sparkles size={20} strokeWidth={1.5} />
-          <p>Send Blaquelyś a fit question, event note, or styling request. Our team responds within 24 hours.</p>
+          <p>Send Blaque Lyś a fit question, event note, or styling request. Our team responds within 24 hours.</p>
         </div>
         <label htmlFor="name">Name</label>
         <input id="name" name="name" placeholder="Your name" required />
